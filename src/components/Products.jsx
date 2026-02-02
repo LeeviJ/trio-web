@@ -10,18 +10,20 @@ const products = [
     border: 'border-blue-100',
     ctaText: 'Kokeile TrioLaskua',
     ctaBg: 'bg-blue-600 hover:bg-blue-700',
+    ctaUrl: 'https://trio-lasku.netlify.app',
   },
   {
     name: 'TrioLog',
     tagline: 'Ajokilometrit ja kuitit talteen yhdellä skannauksella',
     description:
       'Ei enää käsin kirjattuja kilometrejä tai kadonneita kuitteja. TrioLog seuraa ajosi automaattisesti ja lukee kuitit kameralla — veroilmoitus hoituu vaivatta.',
-    features: ['GPS-ajopäiväkirja', 'OCR-kuitinluku', 'Verottajan km-korvaukset', 'Useat ajoprofiilit'],
+    features: ['GPS-ajopäiväkirja', 'OCR-kuitinluku', 'Kauppaprofiilit', 'Useat ajoprofiilit'],
     color: 'bg-green-50',
     accent: 'text-green-600',
     border: 'border-green-100',
     ctaText: 'Kokeile TrioLogia',
     ctaBg: 'bg-green-600 hover:bg-green-700',
+    ctaUrl: 'https://triolog.netlify.app',
   },
 ]
 
@@ -70,7 +72,9 @@ export default function Products() {
                 </ul>
                 <div className="pt-4 mt-auto">
                   <a
-                    href="#pricing"
+                    href={p.ctaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`inline-block ${p.ctaBg} text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm`}
                   >
                     {p.ctaText}
