@@ -1,8 +1,8 @@
 const plans = [
   {
-    name: 'Kokeile ilmaiseksi',
+    name: 'Perusversio',
     price: null,
-    description: 'Perusominaisuudet ilman rekisteröitymistä. Pilvivarmuuskopiot vaativat Ammattilainen-tilauksen (9 €/kk).',
+    description: 'Paikallinen tallennus selaimessa.',
     features: ['TrioLasku — laskujen luonti', 'TrioLog — ajopäiväkirja ja kuitit', 'Paikallinen tallennus laitteellesi', 'Ei aikarajaa'],
     cta: 'Aloita nyt',
     highlighted: false,
@@ -11,7 +11,7 @@ const plans = [
     name: 'Täysi työkalupakki',
     price: '9',
     period: '/ kk',
-    description: 'Kaikki ominaisuudet ja automaatio.',
+    description: 'Sisältää pilvivarmuuskopiot, AI-agentit ja kuitinlukijan rajattoman käytön.',
     features: ['Kaikki ilmaiset ominaisuudet', 'AI-agenttipalvelut', 'Automaattiset sähköpostivarmuuskopiot', 'Prioriteettituki'],
     cta: 'Valitse Ammattilainen',
     highlighted: true,
@@ -50,7 +50,7 @@ export default function Pricing() {
                   </span>
                 </div>
               ) : (
-                <div className="text-4xl font-extrabold">Aloita maksutta</div>
+                <div className="text-4xl font-extrabold">0 €</div>
               )}
               <ul className="space-y-2">
                 {plan.features.map((f) => (
