@@ -1,20 +1,19 @@
 const plans = [
   {
-    name: 'Starter',
-    price: '0',
-    period: 'ikuisesti',
-    description: 'Aloita ilmaiseksi perusominaisuuksilla.',
-    features: ['TrioLasku perusominaisuudet', 'TrioLog GPS-seuranta', 'Paikallinen varmuuskopiointi'],
-    cta: 'Aloita ilmaiseksi',
+    name: 'Kokeile ilmaiseksi',
+    price: null,
+    description: 'Perusominaisuudet ilman rekisteröitymistä.',
+    features: ['TrioLasku — laskujen luonti', 'TrioLog — ajopäiväkirja ja kuitit', 'Paikallinen tallennus laitteellesi', 'Ei aikarajaa'],
+    cta: 'Aloita nyt',
     highlighted: false,
   },
   {
-    name: 'Pro',
+    name: 'Täysi työkalupakki',
     price: '9',
     period: '/ kk',
-    description: 'Kaikki ominaisuudet ja agentti-palvelut.',
-    features: ['Kaikki Starter-ominaisuudet', 'AI-agentti-palvelut', 'Pilvivarmuuskopiointi', 'Prioriteettituki'],
-    cta: 'Valitse Pro',
+    description: 'Kaikki ominaisuudet ja automaatio.',
+    features: ['Kaikki ilmaiset ominaisuudet', 'AI-agenttipalvelut', 'Automaattiset sähköpostivarmuuskopiot', 'Prioriteettituki'],
+    cta: 'Valitse Ammattilainen',
     highlighted: true,
   },
 ]
@@ -43,12 +42,16 @@ export default function Pricing() {
                   {plan.description}
                 </p>
               </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold">{plan.price} €</span>
-                <span className={`text-sm ${plan.highlighted ? 'text-green-100' : 'text-gray-400'}`}>
-                  {plan.period}
-                </span>
-              </div>
+              {plan.price ? (
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-extrabold">{plan.price} €</span>
+                  <span className={`text-sm ${plan.highlighted ? 'text-green-100' : 'text-gray-400'}`}>
+                    {plan.period}
+                  </span>
+                </div>
+              ) : (
+                <div className="text-4xl font-extrabold">Ilmainen</div>
+              )}
               <ul className="space-y-2">
                 {plan.features.map((f) => (
                   <li key={f} className={`text-sm flex items-center gap-2 ${plan.highlighted ? 'text-green-50' : 'text-gray-600'}`}>
@@ -56,10 +59,8 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              {/* Stripe checkout button placeholder — replace href with Stripe Checkout URL */}
               <a
-                href="#"
-                data-stripe-plan={plan.name.toLowerCase()}
+                href={plan.highlighted ? '#' : '#testers'}
                 className={`block text-center font-semibold py-3 rounded-xl transition-colors ${
                   plan.highlighted
                     ? 'bg-white text-primary hover:bg-green-50'
