@@ -31,7 +31,7 @@ export default function AgentServices() {
     <section id="services" className="py-20 px-6 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          Tekoälyagentit liiketoimintasi tukena
+          TrioTools AI-agentit liiketoimintasi tukena
         </h2>
         <p className="text-gray-500 text-center mb-14 max-w-xl mx-auto">
           AI-agentit työskentelevät taustalla ja hoitavat rutiinit — sinä keskityt kasvattamaan yritystäsi.

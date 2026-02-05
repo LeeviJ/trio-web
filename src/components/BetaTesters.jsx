@@ -42,7 +42,7 @@ export default function BetaTesters() {
             Tule testaajaksi — opeta kuitinlukijaa!
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            TrioLogin kuitinlukija oppii tunnistamaan kauppoja sitä paremmin, mitä enemmän
+            TrioTools-kuittiskanneri oppii tunnistamaan kauppoja sitä paremmin, mitä enemmän
             erilaisia kuitteja sillä skannataan. Auta meitä tekemään siitä Suomen paras.
           </p>
         </div>
