@@ -1,8 +1,7 @@
 import Hero from './components/Hero'
 import Products from './components/Products'
-import AgentServices from './components/AgentServices'
 import Pricing from './components/Pricing'
-import BetaTesters from './components/BetaTesters'
+import OrderForm from './components/OrderForm'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -14,25 +13,23 @@ export default function App() {
             <span className="text-primary">Trio</span>Tools
           </span>
           <div className="hidden sm:flex gap-8 text-sm font-medium text-gray-600">
-            <a href="#products" className="hover:text-gray-900 transition-colors">Tuotteet</a>
-            <a href="#services" className="hover:text-gray-900 transition-colors">Palvelut</a>
-            <a href="#testers" className="hover:text-gray-900 transition-colors">Testaa</a>
+            <a href="#triolasku" className="hover:text-gray-900 transition-colors">TrioLasku</a>
             <a href="#pricing" className="hover:text-gray-900 transition-colors">Hinnoittelu</a>
+            <a href="#order" className="hover:text-gray-900 transition-colors">Tilaa</a>
           </div>
           <a
-            href="#products"
+            href="#order"
             className="bg-primary hover:bg-primary-dark text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
           >
-            Tutustu tuotteisiin
+            Tilaa nyt
           </a>
         </div>
       </nav>
 
       <Hero />
       <Products />
-      <AgentServices />
-      <BetaTesters />
       <Pricing />
+      <OrderForm />
       <Footer />
     </div>
   )

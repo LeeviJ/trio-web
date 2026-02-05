@@ -1,120 +1,112 @@
-const products = [
+const triolaskuFeatures = [
   {
-    name: 'TrioLasku',
-    tagline: 'Laskuta minuutissa, ei tunneissa',
-    description:
-      'Unohda Excel-taulukot ja monimutkaiset laskutusohjelmat. TrioLasku luo ammattimaisen laskun muutamalla napautuksella — aikaa säästyy joka viikko tärkeämpiin töihin.',
-    features: ['PDF-laskut sekunneissa', 'Asiakas- ja tuotehallinta', 'Viivakoodi & IBAN', 'Varmuuskopiointi pilveen'],
-    color: 'bg-blue-50',
-    accent: 'text-blue-600',
-    border: 'border-blue-100',
-    badge: 'Suosituin',
-    badgeBg: 'bg-blue-600',
-    ctaText: 'Kokeile ilmaiseksi',
-    ctaBg: 'bg-blue-600 hover:bg-blue-700',
-    ctaUrl: 'https://trio-lasku.netlify.app',
+    title: 'PDF-laskut sekunneissa',
+    description: 'Ammattimainen lasku viivakoodilla ja viitenumerolla — valmis lähetettäväksi.',
   },
   {
-    name: 'TrioLog',
-    tagline: 'Ajokilometrit ja kuitit talteen yhdellä skannauksella',
-    description:
-      'Ei enää käsin kirjattuja kilometrejä tai kadonneita kuitteja. TrioLog seuraa ajosi automaattisesti ja lukee kuitit kameralla — veroilmoitus hoituu vaivatta.',
-    features: ['GPS-ajopäiväkirja', 'Kuittien skannaus ja tallennus', 'Työ- ja yksityisajoprofiilit', 'ALV-erittely kuiteista'],
-    color: 'bg-green-50',
-    accent: 'text-green-600',
-    border: 'border-green-100',
-    badge: null,
-    badgeBg: null,
-    ctaText: 'Kokeile ilmaiseksi',
-    ctaBg: 'bg-green-600 hover:bg-green-700',
-    ctaUrl: 'https://triolog.netlify.app',
+    title: 'Uusi 13,5 % ALV-tuki',
+    description: 'Sisältää valmiiksi Suomen uudet ALV-kannat. Voit lisätä, muokata ja poistaa ALV-prosentteja itse.',
+  },
+  {
+    title: 'Asiakas- ja tuoterekisteri',
+    description: 'Tallenna asiakkaat ja tuotteet kertaalleen — ne ovat valmiina joka laskulla.',
+  },
+  {
+    title: 'Toimii kaikilla laitteilla',
+    description: 'Käytä puhelimella, tabletilla tai tietokoneella. Selain riittää, ei asennuksia.',
+  },
+  {
+    title: 'Varmuuskopiointi',
+    description: 'Lataa tiedot JSON-tiedostona tai lähetä varmuuskopio sähköpostiin yhdellä painalluksella.',
+  },
+  {
+    title: 'Tulevaisuusvarma',
+    description: 'ALV-prosentit, yksiköt ja asetukset ovat täysin käyttäjän hallinnassa — ei tarvitse odottaa päivityksiä.',
   },
 ]
 
-const reasons = [
-  {
-    icon: '0 €',
-    title: 'Ei kuukausimaksuja',
-    description: 'Perusominaisuudet ovat ilmaisia — maksat vain, jos haluat lisäpalveluita.',
-  },
-  {
-    icon: '📱',
-    title: 'Toimii kaikilla laitteilla',
-    description: 'Käytä puhelimella, tabletilla tai tietokoneella. Selain riittää.',
-  },
-  {
-    icon: '🔒',
-    title: 'Tiedot ovat sinun hallussasi',
-    description: 'Datasi tallennetaan laitteeseesi. Voit viedä ja varmuuskopioida kaiken milloin vain.',
-  },
+const triologFeatures = [
+  'GPS-ajopäiväkirja',
+  'Kuittien skannaus ja tallennus',
+  'Työ- ja yksityisajoprofiilit',
+  'ALV-erittely kuiteista',
 ]
 
 export default function Products() {
   return (
     <>
-      <section id="products" className="py-20 px-6 bg-gray-50">
+      {/* TrioLasku – Flagship */}
+      <section id="triolasku" className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">TrioTools-tuotteet</h2>
-          <p className="text-gray-500 text-center mb-14 max-w-xl mx-auto">
-            Kaksi sovellusta, jotka säästävät yrittäjän aikaa joka viikko.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8">
-            {products.map((p) => (
+          <div className="text-center mb-14">
+            <div className="inline-block bg-blue-50 text-blue-600 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+              Valmis ja heti käytettävissä
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              TrioLasku — laskutus, joka toimii
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+              Selkeä laskutusohjelma, joka on suunniteltu suomalaiselle pienyrittäjälle.
+              Luo ammattimaiset PDF-laskut, hallitse asiakkaitasi ja tuotteitasi — kaikki yhdessä paikassa.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {triolaskuFeatures.map((f) => (
               <div
-                key={p.name}
-                className={`${p.color} border ${p.border} rounded-2xl p-8 space-y-4 flex flex-col relative`}
+                key={f.title}
+                className="bg-white border border-gray-200 rounded-2xl p-6 space-y-2 hover:shadow-md transition-shadow"
               >
-                {p.badge && (
-                  <span className={`absolute -top-3 right-6 ${p.badgeBg} text-white text-xs font-bold px-3 py-1 rounded-full`}>
-                    {p.badge}
-                  </span>
-                )}
-                <div>
-                  <h3 className={`text-2xl font-bold ${p.accent}`}>{p.name}</h3>
-                  <p className="text-sm font-medium text-gray-500 mt-1">{p.tagline}</p>
-                </div>
-                <p className="text-gray-600 leading-relaxed">{p.description}</p>
-                <ul className="grid grid-cols-2 gap-2 pt-2">
-                  {p.features.map((f) => (
-                    <li key={f} className="text-sm text-gray-600 flex items-center gap-2">
-                      <span className={`w-1.5 h-1.5 rounded-full ${p.accent.replace('text-', 'bg-')}`} />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <div className="pt-4 mt-auto flex items-center gap-3">
-                  <a
-                    href={p.ctaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-block ${p.ctaBg} text-white font-semibold px-6 py-3 rounded-xl transition-colors text-sm`}
-                  >
-                    {p.ctaText}
-                  </a>
-                  <span className="text-xs text-gray-400">Ei rekisteröitymistä</span>
-                </div>
+                <h3 className="font-semibold text-gray-900">{f.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{f.description}</p>
               </div>
             ))}
+          </div>
+
+          <div className="text-center">
+            <a
+              href="#order"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
+            >
+              Tilaa TrioLasku
+            </a>
           </div>
         </div>
       </section>
 
+      {/* TrioLog – Coming soon */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            Miksi valita TrioTools?
-          </h2>
-          <p className="text-gray-500 text-center mb-14 max-w-xl mx-auto">
-            Rakennettu yrittäjille, jotka arvostavat yksinkertaisuutta.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-8">
-            {reasons.map((r) => (
-              <div key={r.title} className="text-center space-y-3">
-                <div className="text-3xl">{r.icon}</div>
-                <h3 className="text-lg font-semibold">{r.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{r.description}</p>
+          <div className="bg-green-50 border border-green-200 rounded-2xl p-8 sm:p-10">
+            <div className="flex flex-col sm:flex-row sm:items-start gap-6">
+              <div className="flex-1 space-y-4">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-2xl font-bold text-green-700">TrioLog</h3>
+                  <span className="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Tulossa pian
+                  </span>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  Ajopäiväkirja ja kuittien hallinta yhdessä sovelluksessa.
+                  GPS-seuranta, kuittien skannaus ja automaattinen raportointi — kaikki verottajaa varten.
+                </p>
+                <ul className="grid grid-cols-2 gap-2">
+                  {triologFeatures.map((f) => (
+                    <li key={f} className="text-sm text-gray-600 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="bg-white border border-green-200 rounded-xl p-4 mt-4">
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    <span className="font-semibold text-green-700">Päivityslupaus:</span>{' '}
+                    Aloita TrioLaskulla — jos päivität myöhemmin laajempaan TrioLog-kokonaisuuteen,
+                    hyvitämme TrioLaskun hinnan täysimääräisenä.
+                  </p>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
