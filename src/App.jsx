@@ -3,8 +3,15 @@ import Products from './components/Products'
 import Pricing from './components/Pricing'
 import OrderForm from './components/OrderForm'
 import Footer from './components/Footer'
+import ThankYou from './components/ThankYou'
+
+const isPaymentSuccess = new URLSearchParams(window.location.search).get('payment') === 'success'
 
 export default function App() {
+  if (isPaymentSuccess) {
+    return <ThankYou />
+  }
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50">
