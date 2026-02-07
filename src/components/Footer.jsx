@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="space-y-2">
             <h4 className="font-semibold text-gray-900">Tietoa</h4>
             <p>Hinnat sisältävät ALV:n.</p>
-            <p>ALV-velvollisuus rekisteröity 1.2.2026 alkaen.</p>
+            <p>Kaikki tuotteet ja palvelut myydään ALV-velvollisena 1.2.2026 alkaen.</p>
           </div>
           <div className="space-y-2">
             <h4 className="font-semibold text-gray-900">Asiakaspalvelu</h4>
