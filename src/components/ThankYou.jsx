@@ -72,9 +72,9 @@ export default function ThankYou() {
 
         <div className="space-y-3">
           <p className="text-sm text-gray-400">
-            Tarvitsetko apua? Ota yhteyttä:{' '}
-            <a href="mailto:leevi.latvatalo@gmail.com" className="text-primary hover:underline">
-              leevi.latvatalo@gmail.com
+            Tarvitsetko apua?{' '}
+            <a href="/#contact" className="text-primary hover:underline">
+              Ota yhteyttä
             </a>
           </p>
 

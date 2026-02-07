@@ -3,6 +3,7 @@ import Products from './components/Products'
 import TrioPromote from './components/TrioPromote'
 import Pricing from './components/Pricing'
 import OrderForm from './components/OrderForm'
+import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 import ThankYou from './components/ThankYou'
 
@@ -30,6 +31,7 @@ export default function App() {
             <a href="#triopromote" className="hover:text-gray-900 transition-colors">TrioPromote</a>
             <a href="#pricing" className="hover:text-gray-900 transition-colors">Hinnoittelu</a>
             <a href="#order" className="hover:text-gray-900 transition-colors">Tilaa</a>
+            <a href="#contact" className="hover:text-gray-900 transition-colors">Yhteyttä</a>
           </div>
           <a
             href="#order"
@@ -45,6 +47,7 @@ export default function App() {
       <TrioPromote />
       <Pricing />
       <OrderForm />
+      <ContactForm />
       <Footer />
     </div>
   )

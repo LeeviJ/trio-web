@@ -63,6 +63,18 @@ export default function Products() {
             ))}
           </div>
 
+          <div className="bg-white border border-blue-200 rounded-xl p-4 mb-8 text-center">
+            <p className="text-sm text-gray-600 leading-relaxed">
+              <span className="font-semibold text-blue-700">100 % kotimainen</span> — suunniteltu suomalaiselle pienyrittäjälle. Tukee uutta 13,5 % ALV-kantaa heti käyttövalmiina.
+            </p>
+          </div>
+
+          <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8">
+            <p className="text-sm text-amber-800 leading-relaxed">
+              <span className="font-semibold">Huom:</span> TrioLasku on tarkoitettu kevyeen laskutukseen; se ei tue verkkolaskujen (e-lasku) lähetystä.
+            </p>
+          </div>
+
           <div className="text-center">
             <a
               href="#order"

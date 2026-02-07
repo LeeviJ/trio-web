@@ -148,7 +148,7 @@ export default function OrderForm() {
           </p>
 
           <p className="text-xs text-gray-400 text-center">
-            Hinnat ALV 0 % — pienyritystoiminta (AVL 3 §)
+            Hinnat sisältävät ALV:n.
           </p>
         </form>
       </div>
