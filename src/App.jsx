@@ -1,5 +1,6 @@
 import Hero from './components/Hero'
 import Products from './components/Products'
+import TrioPromote from './components/TrioPromote'
 import Pricing from './components/Pricing'
 import OrderForm from './components/OrderForm'
 import Footer from './components/Footer'
@@ -26,6 +27,7 @@ export default function App() {
           </span>
           <div className="hidden sm:flex gap-8 text-sm font-medium text-gray-600">
             <a href="#triolasku" className="hover:text-gray-900 transition-colors">TrioLasku</a>
+            <a href="#triopromote" className="hover:text-gray-900 transition-colors">TrioPromote</a>
             <a href="#pricing" className="hover:text-gray-900 transition-colors">Hinnoittelu</a>
             <a href="#order" className="hover:text-gray-900 transition-colors">Tilaa</a>
           </div>
@@ -40,6 +42,7 @@ export default function App() {
 
       <Hero />
       <Products />
+      <TrioPromote />
       <Pricing />
       <OrderForm />
       <Footer />
