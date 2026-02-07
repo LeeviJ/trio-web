@@ -14,6 +14,24 @@ const channelColors = {
   email: 'bg-gray-700',
 }
 
+const quickPicks = [
+  {
+    label: 'TrioLasku + ALV 13,5 %',
+    product: 'TrioLasku — laskutusohjelma pienyrittäjille. Tukee uutta 13,5 % ALV-kantaa, luo PDF-laskut viivakoodilla, sisältää asiakas- ja tuoterekisterin. Toimii selaimessa kaikilla laitteilla. Hinta alkaen 10 €/kk.',
+    audience: 'suomalaiset pienyrittäjät, toiminimet ja freelancerit',
+  },
+  {
+    label: 'Kesäkampanja',
+    product: 'Kesäale — valikoidut tuotteet ja palvelut alennettuun hintaan kesän kunniaksi',
+    audience: 'nykyiset ja potentiaaliset asiakkaat',
+  },
+  {
+    label: 'Uusi palvelu',
+    product: 'Uuden palvelun lanseeraus — kerro asiakkaille mitä uutta on tarjolla ja miksi se helpottaa heidän arkeaan',
+    audience: 'pienyrittäjät ja yritysasiakkaat',
+  },
+]
+
 export default function TrioPromote() {
   const [product, setProduct] = useState('')
   const [audience, setAudience] = useState('')
@@ -53,6 +71,13 @@ export default function TrioPromote() {
     }
   }
 
+  const handleQuickPick = (pick) => {
+    setProduct(pick.product)
+    setAudience(pick.audience)
+    setResult(null)
+    setError('')
+  }
+
   const handleCopy = (channel, text) => {
     navigator.clipboard.writeText(text)
     setCopied(channel)
@@ -71,7 +96,7 @@ export default function TrioPromote() {
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Kerro mitä haluat markkinoida ja kenelle, niin TrioPromote luo valmiit tekstit Facebookiin,
-            Instagramiin, LinkedIniin ja sähköpostiin. Suomalainen pienyrittäjä ansaitsee ammattimaisen markkinoinnin.
+            Instagramiin, LinkedIniin ja sähköpostiin. Suomalaista osaamista — ei amerikkalaista hehkutusta.
           </p>
         </div>
 
@@ -90,9 +115,9 @@ export default function TrioPromote() {
             </p>
           </div>
           <div className="bg-white border border-gray-200 rounded-2xl p-6 space-y-2 hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-gray-900">Sesonkipohjat yrittäjille</h3>
+            <h3 className="font-semibold text-gray-900">Suomalainen sävy</h3>
             <p className="text-sm text-gray-500 leading-relaxed">
-              Joulu, kesäale, Black Friday — valmiit pohjat suomalaisen pienyrittäjän tarpeisiin.
+              Luotettavaa ja suoraa puhetta — ei tyhjää hehkutusta. Pienyrittäjältä pienyrittäjälle.
             </p>
           </div>
         </div>
@@ -102,6 +127,22 @@ export default function TrioPromote() {
           <h3 className="text-xl font-bold text-purple-800 text-center">
             Kokeile TrioPromotea
           </h3>
+
+          {/* Pikavalinnat */}
+          <div className="space-y-2">
+            <p className="text-xs font-medium text-purple-600 uppercase tracking-wide">Pikavalinnat</p>
+            <div className="flex flex-wrap gap-2">
+              {quickPicks.map((pick) => (
+                <button
+                  key={pick.label}
+                  onClick={() => handleQuickPick(pick)}
+                  className="bg-white border border-purple-200 hover:border-purple-400 hover:bg-purple-50 text-purple-700 text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+                >
+                  {pick.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <form onSubmit={handleGenerate} className="space-y-4">
             <div className="space-y-2">
