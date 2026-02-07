@@ -14,7 +14,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50">
+      {/* ALV 13,5 % -banneri */}
+      <div className="bg-primary text-white text-center text-sm py-2 px-4">
+        Olemme valmiina: TrioLasku tukee nyt uutta 13,5&nbsp;% ALV-kantaa.
+      </div>
+
+      <nav className="sticky top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <span className="text-xl font-bold tracking-tight">
             <span className="text-primary">Trio</span>Tools

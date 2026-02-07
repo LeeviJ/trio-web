@@ -73,8 +73,8 @@ export default function ThankYou() {
         <div className="space-y-3">
           <p className="text-sm text-gray-400">
             Tarvitsetko apua? Ota yhteyttä:{' '}
-            <a href="mailto:tuki@triotools.fi" className="text-primary hover:underline">
-              tuki@triotools.fi
+            <a href="mailto:info@triotools.fi" className="text-primary hover:underline">
+              info@triotools.fi
             </a>
           </p>
 
