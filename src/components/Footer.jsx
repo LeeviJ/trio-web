@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
         <span>© {new Date().getFullYear()} TrioTools. Kaikki oikeudet pidätetään.</span>
         <div className="flex gap-6">
-          <a href="mailto:info@triotools.fi" className="hover:text-gray-600 transition-colors">info@triotools.fi</a>
+          <a href="mailto:leevi.latvatalo@gmail.com" className="hover:text-gray-600 transition-colors">leevi.latvatalo@gmail.com</a>
           <a href="#" className="hover:text-gray-600 transition-colors">Tietosuoja</a>
           <a href="#" className="hover:text-gray-600 transition-colors">Käyttöehdot</a>
         </div>

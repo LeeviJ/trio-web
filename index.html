@@ -7,6 +7,11 @@
     <title>TrioTools - Yrittäjän ohjelmistotyökalut</title>
   </head>
   <body>
+    <!-- Netlify Forms: hidden form for bot detection -->
+    <form name="triolasku-order" netlify netlify-honeypot="bot-field" hidden>
+      <input name="email" type="email" />
+      <input name="period" type="text" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

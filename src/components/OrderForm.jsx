@@ -9,14 +9,38 @@ const periods = [
 export default function OrderForm() {
   const [form, setForm] = useState({ email: '', period: '12' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+
+    const selectedLabel = periods.find((p) => p.value === form.period)?.label || ''
+
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'triolasku-order',
+          email: form.email,
+          period: selectedLabel,
+        }).toString(),
+      })
+
+      if (!res.ok) throw new Error('Lomakkeen lähetys epäonnistui.')
+      setSubmitted(true)
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const selectedPeriod = periods.find((p) => p.value === form.period)
@@ -33,6 +57,9 @@ export default function OrderForm() {
             Tilauksesi on vastaanotettu. Lähetämme vahvistuksen ja maksuohjeet osoitteeseen{' '}
             <span className="font-medium text-gray-700">{form.email}</span> hetken kuluttua.
           </p>
+          <p className="text-sm text-gray-400">
+            Käsittelemme tilaukset manuaalisesti 24h sisällä.
+          </p>
         </div>
       </section>
     )
@@ -48,7 +75,15 @@ export default function OrderForm() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-2xl p-8 space-y-6">
+        <form
+          name="triolasku-order"
+          method="POST"
+          data-netlify="true"
+          onSubmit={handleSubmit}
+          className="bg-white border border-gray-200 rounded-2xl p-8 space-y-6"
+        >
+          <input type="hidden" name="form-name" value="triolasku-order" />
+
           <div className="space-y-2">
             <label htmlFor="order-email" className="block text-sm font-medium text-gray-700">
               Sähköposti
@@ -94,12 +129,23 @@ export default function OrderForm() {
             </div>
           </div>
 
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3">
+              {error}
+            </div>
+          )}
+
           <button
             type="submit"
-            className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
+            disabled={loading}
+            className="w-full bg-primary hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3.5 rounded-xl transition-colors text-base"
           >
-            Tilaa — {selectedPeriod.price}
+            {loading ? 'Lähetetään...' : `Tilaa — ${selectedPeriod.price}`}
           </button>
+
+          <p className="text-xs text-gray-400 text-center">
+            Käsittelemme tilaukset manuaalisesti 24h sisällä.
+          </p>
 
           <p className="text-xs text-gray-400 text-center">
             Hinnat ALV 0 % — pienyritystoiminta (AVL 3 §)
