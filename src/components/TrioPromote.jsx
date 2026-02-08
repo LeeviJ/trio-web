@@ -48,7 +48,7 @@ export default function TrioPromote() {
     setResult(null)
 
     try {
-      const res = await fetch('/.netlify/functions/generate-marketing', {
+      const res = await fetch('/.netlify/functions/gemini-proxy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
